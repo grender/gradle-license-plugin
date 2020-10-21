@@ -19,6 +19,7 @@ import kotlinx.html.hr
 import kotlinx.html.html
 import kotlinx.html.li
 import kotlinx.html.pre
+import kotlinx.html.span
 import kotlinx.html.stream.appendHTML
 import kotlinx.html.style
 import kotlinx.html.title
@@ -102,6 +103,12 @@ class HtmlReport(private val projects: List<Project>) {
                     +project.name
                     +" (${project.version})"
                   }
+                  span {
+                    unsafe {
+                      +"""moduleId:  + <a href ="https://mvnrepository.com/artifact/${project.gav.replace(":","/")}")>${project.gav}</a>"""
+                    }
+                  }
+
                   val copyrightYear = if (project.year.isEmpty()) DEFAULT_YEAR else project.year
                   dl {
                     if (project.developers.isNotEmpty()) {
