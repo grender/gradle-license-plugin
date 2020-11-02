@@ -105,7 +105,7 @@ class HtmlReport(private val projects: List<Project>) {
                   }
                   span {
                     unsafe {
-                      +"""moduleId:  + <a href ="https://mvnrepository.com/artifact/${project.gav.replace(":","/")}")>${project.gav}</a>"""
+                      +"""moduleId: <a href ="https://mvnrepository.com/artifact/${project.gav.replace(":","/")}")>${project.gav}</a>"""
                     }
                   }
 
